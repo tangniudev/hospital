@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>后台控制中心</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2">
+            <div th:replace="top :: left"></div>
+        </div>
+        <div class="col-md-10">
+            <div th:replace="top :: header"></div>
+           <div style="margin-top: 20px">
+
+
+               <div style="height: 200px;margin: 20px;background: #f0f0f0" th:each="hospital:${hospitals}">
+                   <div style="float: left">
+                       <img style="height: 200px;width: 200px" th:src="@{/img/hospital1.jpg}" src="/img/hospital1.jpg">
+                   </div>
+
+                   <div style="float: left;margin-left: 20px">
+                       <div style="height: 80px"> <h1 th:text="${hospital.getH_name()}"></h1></div>
+                       <h4 style="margin-top: -20px">献血屋 <span style="color: darkorange">4小时前有人预约</span> </h4>
+                       <h6 style="margin-top: 20px">9：00-21：00</h6>
+                       <div style="margin-top: 40px">
+
+                           <div style="float: left;border: 1px solid #d0d0d0;margin-right: 20px;padding: 2px;width: 50px;text-align: center">TV</div>
+                           <div style="float: left;border: 1px solid #d0d0d0;margin-right: 20px;padding: 2px;width: 50px;text-align: center">停车</div>
+                           <div style="float: left;border: 1px solid #d0d0d0;margin-right: 20px;padding: 2px;width: 50px;text-align: center">暖气</div>
+                           <div style="float: left;border: 1px solid #d0d0d0;margin-right: 20px;padding: 2px;width: 50px;text-align: center">地铁</div>
+                           <div style="float: left;border: 1px solid #d0d0d0;margin-right: 20px;padding: 2px;width: 50px;text-align: center">茶水</div>
+
+
+
+
+                       </div>
+
+                   </div>
+                   <div style="float: right;margin-right: 20px">
+                       <div style="height: 60px">
+                           <div style="float: right;margin-top: 40px;border:1px solid darkorange">
+                           <span style="color: darkorange" >离我最近</span>
+                       </div>
+                       </div>
+                       <h4 style="margin-top: 20px"><span>东兴区 |  15km</span></h4>
+                       <div>
+                           <a th:href="'/blood/'+${hospital.getH_id()}+'/toaddblood'" href="/blood/toaddblood" ><button style="float: right" class="btn btn-success" >预约</button></a>
+                       </div>
+
+                   </div>
+
+
+
+
+               </div>
+               <div style="height: 200px;margin: 20px;background: #f0f0f0">
+                   <div style="float: left">
+                       <img style="height: 200px;width: 200px" th:src="@{/img/hospital1.jpg}" src="/img/hospital1.jpg">
+                   </div>
+
+                   <div style="float: left;margin-left: 20px">
+                       <div style="height: 80px"> <h1>七宝献血屋</h1></div>
+                       <h4 style="margin-top: -20px">献血屋 <span style="color: darkorange">4小时前有人预约</span> </h4>
+                       <h6 style="margin-top: 20px">9：00-21：00</h6>
+                       <div style="margin-top: 40px">
+
+                           <div style="float: left;border: 1px solid #d0d0d0;margin-right: 20px;padding: 2px;width: 50px;text-align: center">TV</div>
+                           <div style="float: left;border: 1px solid #d0d0d0;margin-right: 20px;padding: 2px;width: 50px;text-align: center">停车</div>
+                           <div style="float: left;border: 1px solid #d0d0d0;margin-right: 20px;padding: 2px;width: 50px;text-align: center">暖气</div>
+                           <div style="float: left;border: 1px solid #d0d0d0;margin-right: 20px;padding: 2px;width: 50px;text-align: center">地铁</div>
+                           <div style="float: left;border: 1px solid #d0d0d0;margin-right: 20px;padding: 2px;width: 50px;text-align: center">茶水</div>
+
+
+
+
+                       </div>
+
+                   </div>
+                   <div style="float: right;margin-right: 20px">
+                       <div style="height: 60px"> <div style="float: right;margin-top: 40px;border:1px solid darkorange"><span style="color: darkorange" >离我最近</span></div> </div>
+                       <h4 style="margin-top: 20px"><span>东兴区 |  15km</span></h4>
+                       <div>
+                           <button style="float: right" class="btn btn-success">预约</button>
+                       </div>
+
+                   </div>
+
+
+
+
+               </div>
+               <div style="height: 200px;margin: 20px;background: #f0f0f0">
+                   <div style="float: left">
+                       <img style="height: 200px;width: 200px" th:src="@{/img/hospital1.jpg}" src="/img/hospital1.jpg">
+                   </div>
+
+                   <div style="float: left;margin-left: 20px">
+                       <div style="height: 80px"> <h1>七宝献血屋</h1></div>
+                       <h4 style="margin-top: -20px">献血屋 <span style="color: darkorange">4小时前有人预约</span> </h4>
+                       <h6 style="margin-top: 20px">9：00-21：00</h6>
+                       <div style="margin-top: 40px">
+
+                           <div style="float: left;border: 1px solid #d0d0d0;margin-right: 20px;padding: 2px;width: 50px;text-align: center">TV</div>
+                           <div style="float: left;border: 1px solid #d0d0d0;margin-right: 20px;padding: 2px;width: 50px;text-align: center">停车</div>
+                           <div style="float: left;border: 1px solid #d0d0d0;margin-right: 20px;padding: 2px;width: 50px;text-align: center">暖气</div>
+                           <div style="float: left;border: 1px solid #d0d0d0;margin-right: 20px;padding: 2px;width: 50px;text-align: center">地铁</div>
+                           <div style="float: left;border: 1px solid #d0d0d0;margin-right: 20px;padding: 2px;width: 50px;text-align: center">茶水</div>
+
+
+
+
+                       </div>
+
+                   </div>
+                   <div style="float: right;margin-right: 20px">
+                       <div style="height: 60px"> <div style="float: right;margin-top: 40px;border:1px solid darkorange"><span style="color: darkorange" >离我最近</span></div> </div>
+                       <h4 style="margin-top: 20px"><span>东兴区 |  15km</span></h4>
+                       <div>
+                           <button style="float: right" class="btn btn-success">预约</button>
+                       </div>
+
+                   </div>
+
+
+
+
+               </div>
+
+           </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div th:replace="top :: footer"></div>
+
+
+<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+<script src="../js/jquery.min.js"></script>
+<!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+<script src="../js/bootstrap.min.js"></script>
+</body>
+
+</html>

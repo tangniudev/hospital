@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>后台控制中心</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+
+</head>
+<body>
+<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+<!--<div id="main" style="width: 600px;height:400px;"></div>-->
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2">
+            <div th:replace="top :: left2"></div>
+        </div>
+        <div class="col-md-10">
+            <div th:replace="top :: header"></div>
+            <div style="padding: 20px 50px">
+                <div id="main" style="float:right;width: 550px;height: 400px;margin-top: 30px">
+
+                </div>
+
+                <div >
+                    <h1 th:text="${hospital.getH_name()}"></h1>
+                </div>
+                <div >
+                    <img style="width: 300px;height: 220px;margin-left: 20px" src="/img/499f773265aca5ac9bae258c89e86d0f.jpeg">
+                </div>
+                <div style="width: 400px;">
+                    <h6>北京大学人民医院西直门院区位于北京市西直门南大街11号，白塔寺院区位于西城区阜成门内大街133号，
+                        始建于1918年，是一所集医疗、教学、科研为一体的三级甲等综合医院，是北京市医保定点医院，国家卫生计生委委管医院
+                        ，北京大学附属医院，北京大学第二临床医学院，先后获得“全国卫生系统思想政治工作先进单位”、“全国医院（卫生）文化建设优秀成果奖”、
+                        “全国医院（卫生）文化建设先进集体”、“全国医药卫生系统创先争优活动先进集体”、
+                        “首都文明单位标兵”、“首都医药卫生文化建设先进单位”、
+                        “北京大学党务和思想政治工作先进集体”、“北京大学统战工作先进党委”等荣誉</h6>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="top :: footer"></div>
+
+
+
+<div th:replace="top :: footer"></div>
+
+
+
+<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+<script src="../js/jquery.min.js"></script>
+<!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+<script src="../js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+
+    var myChart = echarts.init(document.getElementById('main'));
+    // var A=document.getElementById("A").valueOf();
+    // alert(A);
+
+    // 指定图表的配置项和数据
+    var option = {
+        title: {
+            text: '血型分布表'
+        },
+        tooltip: {},
+        legend: {
+            data:['含量']
+        },
+        xAxis: {
+            data: ["A型血","B型血","AB型血","O型血"]
+        },
+        yAxis: {},
+        series: [{
+            name: '含量',
+            type: 'bar',
+            data: [5, 20, 36, 10]
+        }]
+    };
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+</script>
+
+</body>
+
+</html>

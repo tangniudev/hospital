@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>后台控制中心</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2">
+            <div th:replace="top :: left2"></div>
+        </div>
+        <div class="col-md-10">
+            <div th:replace="top :: header"></div>
+            <div style="margin-top: 30px">
+                <div >
+                    <h5 style="color: red">待补充献血登记资料</h5>
+                </div>
+                <div style="padding: 10px 200px">
+                    <div >
+                        <form class="form-horizontal" th:action="'/blood/'+${blood.getB_id()}+'/updateblood'" method="post">
+
+                            <div class="form-group">
+                                <label for="input2" class="col-sm-2 control-label">姓名</label>
+                                <div class="col-sm-10">
+                                    <input type="text" readonly  unselectable="on" name="name" class="form-control" id="input2" th:value="${blood.getUser().getU_name()}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="input3" class="col-sm-2 control-label">邮箱</label>
+                                <div class="col-sm-10">
+                                    <input type="email" name="email" class="form-control" id="input3"th:value="${blood.getUser().getU_mail()}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="input4" class="col-sm-2 control-label">电话号码</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="phone" class="form-control" id="input4" th:value="${blood.getUser().getU_phone()}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label  for="input5" class="col-sm-2 control-label">献血类型</label>
+                                <div class="col-sm-10">
+
+
+                                    <input type="text" name="phone" class="form-control" id="input5" th:value="${blood.getUser().getU_type()}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label  for="input6" class="col-sm-2 control-label">献血量</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="phone" class="form-control" id="input6" th:value="${blood.getCapacity()}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label   class="col-sm-2 control-label">状态</label>
+                                <div class="col-sm-10">
+                                    <!--<input type="text" name="phone" class="form-control"  th:value="${blood.getState()}">-->
+                                    <!--<label class="radio-inline">-->
+                                        <!--<input type="radio"  th:field="*{blood.getState()}"  value="已预约"> 已预约-->
+                                    <!--</label>-->
+                                    <!--<label class="radio-inline">-->
+                                        <!--<input type="radio" th:field="*{blood.getState()}"  value="已完成" > 已完成-->
+                                    <!--</label>-->
+                                    <!--<label class="radio-inline">-->
+                                        <!--<input type="radio" th:field="*{blood.getState()}"  value="已献血" > 已献血-->
+                                        <!--<label class="radio-inline">-->
+                                            <!--<input type="radio" th:field="*{blood.getState()}"  value="已取消" > 已取消-->
+                                    <select name="state" class="form-control">
+
+                                        <option th:selected="${blood.getState()=='已完成'}" value="已完成">已完成</option>
+                                        <option    th:selected="${blood.getState()=='已预约'}"value="已预约">已预约</option>
+                                        <option   th:selected="${blood.getState()=='已取消'}" value="已取消">已取消</option>
+                                        <option  th:selected="${blood.getState()=='已献血'}" value="已献血">已献血</option>
+
+
+
+                                    </select>
+
+                                    <!--<div  class="col-sm-8">-->
+                                    <!--<div class="radio-inline">-->
+                                    <!--<label><input name="sex" type="radio" value="男"  th:field="*{user.u_gender}"/> 男</label>-->
+                                    <!--</div>-->
+                                    <!--<div class="radio-inline">-->
+                                    <!--<label><input name="sex" type="radio" value="女"  th:field="*{user.u_gender}"/> 女</label>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+
+
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="input7" class="col-sm-2 control-label">献血日期</label>
+                                <div class="col-sm-10">
+                                    <input type="date"  name="date" class="form-control" id="input7" th:value="${#dates.format(blood.getP_date(), 'yyyy-MM-dd')}" >
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="input8" class="col-sm-2 control-label">地址</label>
+                                <div class="col-sm-10">
+                                    <input type="text"  readonly  unselectable="on" name="address" class="form-control" id="input8" th:value="${user.getU_address()}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <button type="submit" class="btn btn-default">修改</button>
+                                    <button type="button" class="btn btn-default">取消</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div th:replace="top :: footer"></div>
+
+
+
+<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+<script src="../js/jquery.min.js"></script>
+<!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+<script src="../js/bootstrap.min.js"></script>
+</body>
+
+</html>

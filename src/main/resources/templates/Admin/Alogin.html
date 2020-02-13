@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org" lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>登陆</title>
+    <link th:href="@{/css/bootstrap.min.css}"  rel="stylesheet" type="text/css">
+    <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <style>
+        body{
+            /*background: url(img/hrlog.jpg) no-repeat center fixed;*/
+            height: auto;
+            background: #4cae4c;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="row" style="margin-top: 200px">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <div style="background:white;opacity:0.5;padding: 50px">
+                <div >
+                    <form action="/admin/welcome" method="post">
+                        <h4>登陆</h4>
+                        <p>欢迎登陆无偿献血系统</p>
+                       <div class="input-i">
+                           <input type="text" class="form-control " placeholder="账号" name="number" />
+                           <!--<span class="glyphicon glyphicon-search" aria-hidden="true"></span>-->
+                       </div>
+                        <input type="password"  class="form-control " placeholder="密码" name="password" />
+                        <div class="input-group">
+                            <!--<div class="input-icon-group">-->
+                                <!--<input type="text" class="form-control fc-clear" />-->
+                                <!--<span id="scan" data-role="md" class="md md-center-focus-weak fa-lg input-icon input-icon-md" style="display: inline;">-->
+        <!--</span>-->
+                            <!--</div>-->
+                            <!--<span class="input-group-btn">-->
+        <!--<button class="btn btn-primary" type="button">-->
+            <!--批号-->
+        <!--</button>-->
+    <!--</span>-->
+                        <!--</div>-->
+                        <div><a style="text-decoration-line: none" href="">忘记密码了？</a></div>
+                        <button type="submit" class="btn btn-success">Submit</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+</div>
+
+<div th:replace="top :: footer"></div>
+
+
+<script th:src="@{/js/jquery.min.js}" type="text/javascript"></script>
+<script th:src="@{/js/bootstrap.min.js}" type="text/javascript"></script>
+</body>
+</html>

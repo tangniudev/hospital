@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.cwnu.hospital.Mapper.HospitalMapper">
+
+<select id="findById" parameterType="int" resultType="edu.cwnu.hospital.Pojo.Hospital">
+    select * from hospital where h_id=#{h_id}
+</select>
+    <select id="findByAddress" parameterType="String" resultType="edu.cwnu.hospital.Pojo.Hospital">
+        select * from hospital where h_address=#{h_address}
+    </select>
+    <select id="findAll" resultType="edu.cwnu.hospital.Pojo.Hospital">
+        select * from hospital
+    </select>
+
+
+
+</mapper>
